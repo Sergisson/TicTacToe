@@ -18,6 +18,8 @@ public class Field {
 
     private boolean endCycle = false;
 
+    public boolean endGame = false;
+
     Scanner sc = new Scanner(System.in); // создаём объект класса Scanner для ввода данных
 
     public Field() {
@@ -96,7 +98,13 @@ public class Field {
             } else {
                 System.out.println("Error, this cell is already occupied"); //Ошибка, данная клетка уже занята
             }
-
+            /*Условие окончания игры*/
+            if (field[x + 1][y] == x_Or_0 && field[x - 1][y] == x_Or_0 ||
+                    field[x][y + 1] == x_Or_0 && field[x][y + 1] == x_Or_0 ||
+                    field[x - 1][y + 1] == x_Or_0 && field[x + 1][y - 1] == x_Or_0 ||
+                    field[x - 1][y - 1] == x_Or_0 && field[x + 1][y + 1] == x_Or_0) {
+                endGame = true;
+            }
         } while (!endCycle);
     }
 }
