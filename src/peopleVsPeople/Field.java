@@ -25,8 +25,6 @@ public class Field {
     }
 
     public Field(int size) {
-        System.out.println(endCycle);
-
         do {
             System.out.print("Please enter the size of the game (square) of the field: ");//Пожалуйста, введите размер игрового поля (игровое поле квадратное)
 
@@ -43,7 +41,7 @@ public class Field {
                 System.out.println("Error, please enter another dimension value that is in the range of 0 to 100");
             }
 
-        } while (endCycle == false);
+        } while (!endCycle);
         field = new char[fieldSize][fieldSize];
     }
 
@@ -99,6 +97,6 @@ public class Field {
                 System.out.println("Error, this cell is already occupied"); //Ошибка, данная клетка уже занята
             }
 
-        } while (endCycle == false);
+        } while (!endCycle);
     }
 }
